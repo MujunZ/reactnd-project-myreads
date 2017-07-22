@@ -49,14 +49,28 @@ class BooksApp extends React.Component {
         "author": "Mark Twain",
         "coverUrl": "http://books.google.com/books/content?id=32haAAAAMAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72yckZ5f5bDFVIf7BGPbjA0KYYtlQ__nWB-hI_YZmZ-fScYwFy4O_fWOcPwf-pgv3pPQNJP_sT5J_xOUciD8WaKmevh1rUR-1jk7g1aCD_KeJaOpjVu0cm_11BBIUXdxbFkVMdi&source=gbs_api",
         "shelf": "read"
-      }]
+      }
+    ],
+    shelves: [
+    {
+      "id": "current",
+      "name": "Currently Reading"
+    },
+    {
+      "id": "wantToRead",
+      "name": "Want to Read"
+    },
+    {
+      "id": "read",
+      "name":"Read"
+    }]
   }
 
   render() {
     return (
       <div className="app">
         <Route exact path="/" render={() => (
-            <Booklist books={this.state.books} />
+            <Booklist books={this.state.books} shelves={this.state.shelves}/>
           )}/>
         <Route path="/search" component={SearchBook}/>
       </div>

@@ -13,38 +13,24 @@ class Booklist extends Component {
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-              <div>
-                <div className="bookshelf">
-                  <h2 className="bookshelf-title">Currently Reading</h2>
+              {this.props.shelves.map(shelf => (
+              	<div key={shelf.id} className="bookshelf">
+                  <h2 className="bookshelf-title">{shelf.name}</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                    {currentlyReadingList.map((book) => (
+                    {shelf.id === "current" && currentlyReadingList.map((book) => (
+                    	<BookItem key={book.title} book={book}/>
+                    ))}
+                    {shelf.id === "wantToRead" && wantToReadList.map((book) => (
+                    	<BookItem key={book.title} book={book}/>
+                    ))}
+                    {shelf.id === "read" && readList.map((book) => (
                     	<BookItem key={book.title} book={book}/>
                     ))}
                     </ol>
                   </div>
                 </div>
-                <div className="bookshelf">
-                  <h2 className="bookshelf-title">Want to Read</h2>
-                  <div className="bookshelf-books">
-                    <ol className="books-grid">
-                    {wantToReadList.map((book) => (
-                    	<BookItem key={book.title} book={book}/>
-                    ))}
-                    </ol>
-                  </div>
-                </div>
-                <div className="bookshelf">
-                  <h2 className="bookshelf-title">Read</h2>
-                  <div className="bookshelf-books">
-                    <ol className="books-grid">
-                    {readList.map((book) => (
-                    	<BookItem key={book.title} book={book}/>
-                    ))}
-                    </ol>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
             <div className="open-search">
             	<Link to="/search">Add a book</Link>
