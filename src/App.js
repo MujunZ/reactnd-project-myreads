@@ -2,7 +2,6 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import SearchBook from './SearchBook';
 import Booklist from './Booklist'
-//import * as BooksAPI from './BooksAPI';
 import './App.css';
 
 class BooksApp extends React.Component {
@@ -12,13 +11,13 @@ class BooksApp extends React.Component {
         "title": "To Kill a Mockingbird",
         "author": "Harper Lee",
         "coverUrl": "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api",
-        "shelf": "current"
+        "shelf": "currentlyReading"
       },
       {
         "title": "Ender's Game",
         "author": "Orson Scott Card",
         "coverUrl": "http://books.google.com/books/content?id=yDtCuFHXbAYC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72RRiTR6U5OUg3IY_LpHTL2NztVWAuZYNFE8dUuC0VlYabeyegLzpAnDPeWxE6RHi0C2ehrR9Gv20LH2dtjpbcUcs8YnH5VCCAH0Y2ICaKOTvrZTCObQbsfp4UbDqQyGISCZfGN&source=gbs_api",
-        "shelf": "current"
+        "shelf": "currentlyReading"
       },
       {
         "title": "1776",
@@ -53,7 +52,7 @@ class BooksApp extends React.Component {
     ],
     shelves:[
       {
-        "id": "current",
+        "id": "currentlyReading",
         "name": "Currently Reading"
       },
       {

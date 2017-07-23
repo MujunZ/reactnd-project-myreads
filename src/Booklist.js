@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Booklist extends Component {
 	render(){
-		const currentlyReadingList = this.props.books.filter(book => book.shelf==="current");
+		const currentlyReadingList = this.props.books.filter(book => book.shelf==="currentlyReading");
 		const wantToReadList = this.props.books.filter(book => book.shelf==="wantToRead");
 		const readList = this.props.books.filter(book => book.shelf==="read");
 		return(
@@ -18,7 +18,7 @@ class Booklist extends Component {
                   <h2 className="bookshelf-title">{shelf.name}</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                    {shelf.id === "current" && currentlyReadingList.map((book) => (
+                    {shelf.id === "currentlyReading" && currentlyReadingList.map((book) => (
                     	<BookItem key={book.title} book={book} onMoveShelf={this.props.onMoveShelf}/>
                     ))}
                     {shelf.id === "wantToRead" && wantToReadList.map((book) => (

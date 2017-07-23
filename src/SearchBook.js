@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import * as BooksAPI from './BooksAPI';
 
 class SearchBook extends Component {
+	componentDidMount() {
+	  BooksAPI.getAll().then(data => {
+	  	console.log(data);
+	  })
+	}
 	render() {
 		return(
 			<div className="search-books">
