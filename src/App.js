@@ -51,26 +51,33 @@ class BooksApp extends React.Component {
         "shelf": "read"
       }
     ],
-    shelves: [
-    {
-      "id": "current",
-      "name": "Currently Reading"
-    },
-    {
-      "id": "wantToRead",
-      "name": "Want to Read"
-    },
-    {
-      "id": "read",
-      "name":"Read"
-    }]
+    shelves:[
+      {
+        "id": "current",
+        "name": "Currently Reading"
+      },
+      {
+        "id": "wantToRead",
+        "name": "Want to Read"
+      },
+      {
+        "id": "read",
+        "name":"Read"
+      }
+    ]
+  }
+
+  moveShelf = (e,book) => {
+    let value = e.target.value;
+    book.shelf = value;
+    this.setState(this.state);
   }
 
   render() {
     return (
       <div className="app">
         <Route exact path="/" render={() => (
-            <Booklist books={this.state.books} shelves={this.state.shelves}/>
+            <Booklist books={this.state.books} shelves={this.state.shelves} onMoveShelf={this.moveShelf}/>
           )}/>
         <Route path="/search" component={SearchBook}/>
       </div>

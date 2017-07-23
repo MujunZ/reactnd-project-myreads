@@ -19,13 +19,13 @@ class Booklist extends Component {
                   <div className="bookshelf-books">
                     <ol className="books-grid">
                     {shelf.id === "current" && currentlyReadingList.map((book) => (
-                    	<BookItem key={book.title} book={book}/>
+                    	<BookItem key={book.title} book={book} onMoveShelf={this.props.onMoveShelf}/>
                     ))}
                     {shelf.id === "wantToRead" && wantToReadList.map((book) => (
-                    	<BookItem key={book.title} book={book}/>
+                    	<BookItem key={book.title} book={book} onMoveShelf={this.props.onMoveShelf}/>
                     ))}
                     {shelf.id === "read" && readList.map((book) => (
-                    	<BookItem key={book.title} book={book}/>
+                    	<BookItem key={book.title} book={book} onMoveShelf={this.props.onMoveShelf}/>
                     ))}
                     </ol>
                   </div>
