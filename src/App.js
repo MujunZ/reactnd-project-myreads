@@ -33,32 +33,30 @@ class BooksApp extends React.Component {
     BooksAPI.getAll().then((books) => {
       this.setState( state => {
         state.books = books;
-        state.shelfList.currentlyReading = books.filter(book => book.shelf==="currentlyReading");
-        state.shelfList.wantToRead = books.filter(book => book.shelf==="wantToRead");
-        state.shelfList.read = books.filter(book => book.shelf==="read");
       });
     })
   }
 
   moveShelf = (e,book) => {
     let shelf = e.target.value;
-    const books = [];
-
-    BooksAPI.update(book, shelf).then((shelfList) => {
-      for (let i = 0; i < shelfList.currentlyReading.length; i++) {
-        BooksAPI.get(shelfList.currentlyReading[i]).then(book => {
-          books.push(book)});
-      }
-      for (let i = 0; i < shelfList.wantToRead.length; i++) {
-        BooksAPI.get(shelfList.wantToRead[i]).then(book => {
-          books.push(book)});
-      }
-      for (let i = 0; i < shelfList.read.length; i++) {
-        BooksAPI.get(shelfList.read[i]).then(book => {
-          books.push(book)});
+    this.setState(state => {
+      if(!this.state.books.map(book => book.id).includes(book.id)){
+        BooksAPI.get(book.id).then(book => {
+          book.shelf = shelf;
+          this.state.books.push(book);
+          this.setState(this.state);
+        })
+      } else if (shelf === "none") {
+        book.shelf = shelf;
+        let books = this.state.books.filter(book => book.shelf !== shelf);
+        this.setState({books: books});
+      } else {
+        book.shelf = shelf;
+        this.setState(this.state);
       }
     });
-    this.setState( state => ({ books: books }));
+
+    BooksAPI.update(book, shelf);
   }
 
   render() {
