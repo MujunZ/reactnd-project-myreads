@@ -3,11 +3,12 @@ import React, { Component }  from 'react';
 class BookItem extends Component {
 	render(){
 		const { book } = this.props;
+		const imageLinks = book.imageLinks? book.imageLinks.smallThumbnail: "./icons/book_Cover_404.gif";
 		return(
 			<li>
 			  <div className="book">
 			    <div className="book-top">
-			      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+			      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageLinks})` }}></div>
 			      <div className="book-shelf-changer">
 			        <select onChange={e => this.props.onMoveShelf(e,book)} value={book.shelf}>
 			          <option value="none" disabled>Move to...</option>
