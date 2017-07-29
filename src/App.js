@@ -21,11 +21,6 @@ class BooksApp extends React.Component {
         "id": "read",
         "name":"Read"
       }
-    ],
-    shelfList:[
-      {currentlyReading: []},
-      {wantToRead: []},
-      {read: []}
     ]
   }
 
