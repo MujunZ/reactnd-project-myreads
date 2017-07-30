@@ -63,7 +63,7 @@ class BooksApp extends React.Component {
         <Route path="/search" render={({ history }) => (
             <SearchBook onMoveShelf={(e,book) => {
               this.moveShelf(e,book);
-              history.push("/");
+              //history.push("/"); // uncomment this, if we want to route back to the home page
             }}/>
           )}/>
       </div>

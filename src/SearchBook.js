@@ -50,8 +50,8 @@ class SearchBook extends Component {
 			  </div>
 			  {this.state.query && <div className="search-books-results">
 			    <ol className="books-grid">
-			    	{this.state.searchedBooks.map((book) => (
-			    	    <BookItem key={book.id} book={book} onMoveShelf={this.props.onMoveShelf}/>
+			    	{this.state.searchedBooks.map((book,index) => (
+			    	    <BookItem key={index} book={book} onMoveShelf={this.props.onMoveShelf}/>
 			    	))}
 			    </ol>
 			  </div>}
