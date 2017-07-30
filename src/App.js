@@ -36,11 +36,9 @@ class BooksApp extends React.Component {
     let shelf = e.target.value;
     this.setState(state => {
       if(!this.state.books.map(book => book.id).includes(book.id)){
-        BooksAPI.get(book.id).then(book => {
-          book.shelf = shelf;
-          this.state.books.push(book);
-          this.setState(this.state);
-        })
+        book.shelf = shelf;
+        this.state.books.push(book);
+        this.setState(this.state);
       } else if (shelf === "none") {
         book.shelf = shelf;
         let books = this.state.books.filter(book => book.shelf !== shelf);
