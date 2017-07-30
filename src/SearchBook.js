@@ -13,7 +13,10 @@ class SearchBook extends Component {
 	searchBooks = query => {
 	  	if(query){
 	  		BooksAPI.search(query,10).then( result => {
-	  			let searchedBooks = Array.from(result);
+	  			let searchedBooks = Array.from(result).map(book => {
+										book.shelf = "none";
+										return book;
+									});
 			  	this.setState( state => {
 			  		state.searchedBooks = searchedBooks;
 			  	});
