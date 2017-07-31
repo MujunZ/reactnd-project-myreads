@@ -20,7 +20,7 @@ class BookItem extends Component {
 			      </div>
 			    </div>
 			    <div className="book-title">{book.title}</div>
-			    <div className="book-authors">{book.authors}</div>
+			    <div className="book-authors">{book.authors || "none"}</div>
 			  </div>
 			</li>
 		)
